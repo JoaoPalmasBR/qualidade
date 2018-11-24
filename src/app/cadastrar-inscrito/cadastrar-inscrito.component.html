@@ -1,0 +1,21 @@
+<ul>
+  <li *ngFor="let inscrito of inscritos">
+    {{inscrito.nome}} ({{inscrito.email}})
+  </li>
+</ul>
+<hr>
+<form (submit)="cadastrar()" #form="ngForm">
+  <div class="form-group">
+    <label for="nome">Nome Completo</label>
+    <input type="text" name="nome" [(ngModel)]="nome"  class="form-control" id="nome" aria-describedby="emailHelp" placeholder="Nome Completo" required>
+    <small id="nomeHelp" class="form-text text-muted">Nome Completo ou o mais pr&oacute;ximo disso.</small>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" [(ngModel)]="email"  name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Confirmar</button>
+</form>
+<br>
+{{nome}} - {{email}}
